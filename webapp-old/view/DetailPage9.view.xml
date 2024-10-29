@@ -1,0 +1,100 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.adminEngine.controller.DetailPage9"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified">
+    <Page title="Grupos" showHeader="true" showFooter="true" showNavButton="false">
+        <content>
+            <Table width="auto" items="{
+								path: '/Agrupadores',
+								parameters: {
+                                    $expand: 'materiais',
+									$count: true,
+									$$updateGroupId : 'AgrupadoresGroup'
+								}
+							}" noDataText="Sem dados para exibição" mode="Delete" delete="onDelete" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" id="agrupadorTable">
+                <infoToolbar>
+                    <Toolbar width="100%" id="vsdFilterBar" visible="false">
+                        <content>
+                            <Label id="vsdFilterLabel"/>
+                        </content>
+                    </Toolbar>
+                </infoToolbar>
+                <headerToolbar>
+                    <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                        <content>
+                            <Title text="Items ({$count})" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false" id="titleCount"/>
+                            <ToolbarSpacer width=""/>
+                            <OverflowToolbarButton text="Delete" type="Emphasized" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onDeleteAll"/>
+                            <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onOverflowToolbarButtonPress"/>
+                            <OverflowToolbarButton type="Default" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="handleSortButtonPressed" id="sortMy"/>
+                            <OverflowToolbarButton type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="handleFilterButtonPressed"/>
+                            <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://download" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onExport"/>
+                            <u:FileUploader id="FileUploaderid" name="myFileUpload" placeholder="Choose a file for Upload..." change="onhandleUpload" style="Emphasized" fileType="xlsx,csv" visible="false"/>
+                            <u:FileUploader id="FileUploaderId2" sameFilenameAllowed="true" iconOnly="true" buttonOnly="true" fileType="XLSX,xlsx" icon="sap-icon://upload" style="Emphasized" change="onUpload"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Grupo" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Técnologia" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Material" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Descrição do material" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Data ult. mod." width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Usuário ult. mod." width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="columnListItem">
+                        <cells>
+                            <Text text="{agrupador}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{tecnologia}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{material}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{materiais/descMaterial}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{path: 'dataHora', 
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: {
+                                            source: {
+                                                pattern: 'yyyy-MM-ddTHH:mm:ss'
+                                            },
+                                            pattern: 'dd MMM,yyyy HH:mm:ss'
+                                        }
+                                    }" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{usuario}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <!--   <headerContent>
+            <OverflowToolbarButton text="Action" type="Accept" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+        </headerContent> -->
+    </Page>
+</mvc:View>

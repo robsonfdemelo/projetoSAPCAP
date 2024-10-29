@@ -1,0 +1,113 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirm"
+		resetFilters="onResetFilters">
+		<filterItems>
+
+			<ViewSettingsCustomItem id="customTipoOS" text="OSs" key="tipoOs">
+                <customControl>
+                    <List id="TipoOSCustomList" 
+                            items="{ path: '/TipoOsHelp' }" growing="true" growingThreshold="40" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeTipoOS">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchTipoOS" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem 
+						title="{tipoOs}"
+						description="{descricaoOs}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+
+			<!-- <ViewSettingsFilterItem
+				text="OSs"
+				key="tipoOs"
+				multiSelect="true"
+                items="{ path: '/TipoOsHelp' }">
+				<items>
+					<ViewSettingsItem id="viewFilter1" text="{tipoOs}" key="tipoOs"/>
+				</items>
+			</ViewSettingsFilterItem> -->
+
+			<ViewSettingsCustomItem id="customMaterial" text="Material" key="codMaterialSAP">
+                <customControl>
+                    <List id="MaterialCustomList" 
+                            items="{ path: '/BOM',
+					parameters: { 
+						$apply: 'groupby((codMaterialSAP))'
+					} 
+				}" growing="true" growingThreshold="50" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeMaterial">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchMaterial" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{codMaterialSAP}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+
+			<!-- <ViewSettingsFilterItem
+				text="Material"
+				key="material"
+				multiSelect="true"
+                items="{ path: '/MateriaisHelp'}">
+				<items>
+					<ViewSettingsItem id="viewFilter2" text="{material}" key="material"/>
+				</items>
+			</ViewSettingsFilterItem> -->
+
+			<ViewSettingsFilterItem
+				text="Tipo de Instalação"
+				key="tipoInstalacao"
+				multiSelect="true"
+                items="{ path: '/BOM',
+					parameters: { 
+						$apply: 'groupby((tipoInstalacao))'
+					} 
+				}">
+				<items>
+					<ViewSettingsItem
+					id="viewFilter3"
+					text="{
+                		path: 'tipoInstalacao',
+                		formatter: '.formatarTipoInstalacao'
+            		}"
+			 		key="tipoInstalacao"/>
+				</items>
+			</ViewSettingsFilterItem>
+
+			<ViewSettingsFilterItem
+				text="Região"
+				key="regiao"
+				multiSelect="true"
+                items="{ path: '/BOM',
+					parameters: { 
+						$apply: 'groupby((regiao))'
+					} 
+				}">
+				<items>
+					<ViewSettingsItem id="viewFilter4" text="{regiao}" key="regiao"/>
+				</items>
+			</ViewSettingsFilterItem>
+
+			<ViewSettingsFilterItem
+				text="Tecnologia"
+				key="tecnologia"
+				multiSelect="true"
+                items="{ path: '/BOM',
+					parameters: { 
+						$apply: 'groupby((tecnologia))'
+					} 
+				}">
+				<items>
+					<ViewSettingsItem id="viewFilter5" text="{tecnologia}" key="tecnologia"/>
+				</items>
+			</ViewSettingsFilterItem>
+
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,65 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.adminEngine.controller.DetailPage3" xmlns="sap.m" xmlns:u="sap.ui.unified">
+    <Page showHeader="true" title="Técnicos por WO" showFooter="true" showNavButton="false">
+        <content>
+            <Table width="auto" id="TecTable" items="{path: '/TecnicoPorEPO', parameters: { $expand: 'fornecedor', $count: true, $$updateGroupId : 'TecGroup'}}" noDataText="No data" delete="onDelete" mode="Delete" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin">
+                <infoToolbar>
+                    <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                        <content>
+                            <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </content>
+                    </Toolbar>
+                </infoToolbar>
+                <headerToolbar>
+                    <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                        <content>
+                            <Title text="Items ({$count})" id="titleCount" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                            <ToolbarSpacer width=""/>
+                            <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onOverflowToolbarButtonPress"/>
+                            <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://download" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onExportOdataV4"/>
+                            <u:FileUploader id="FileUploaderid" name="myFileUpload" placeholder="Choose a file for Upload..." change="onhandleUpload" style="Emphasized" fileType="xlsx,csv" visible="false"/>                       
+                           <u:FileUploader id="FileUploaderId2" sameFilenameAllowed="true" iconOnly="true" buttonOnly="true" fileType="XLSX,xlsx"
+									icon="sap-icon://upload" style="Emphasized" change="onUpload"/>
+                        
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Login Técnico" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="ID da Fornecedor" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Nome da Fornecedor" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="{loginTecnico}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{CodFornecedorSAP}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{fornecedor/nomeFornecedor}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>  
+        <footer>
+        </footer>
+        <headerContent>
+            <OverflowToolbarButton text="Action" type="Accept" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+        </headerContent>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

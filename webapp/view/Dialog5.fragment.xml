@@ -1,0 +1,137 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.standard.adminEngine.controller.Dialog5" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+    <Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Adicionar Linha da BOM" type="Standard" verticalScrolling="true">
+        <content>
+            <form:Form width="100%" editable="true" visible="true">
+                <form:title/>
+                <form:formContainers>
+                    <form:FormContainer visible="true">
+                        <form:formElements>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                     <Input id="regiao" placeholder="Região" showValueHelp="true" valueHelpRequest="handleValueHelpRegiao" valueHelpOnly="true"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                    <ComboBox id="TpInst" placeholder="Tipo de instalação" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                        <items>
+                                            <core:Item text="Casa" enabled="true" key="C"/>
+                                            <core:Item text="Entrada de coletivos" enabled="true" key="E"/>
+                                            <core:Item text="Bloco" enabled="true" key="P"/>
+                                            <core:Item text="Apto" enabled="true" key="U"/>
+                                        </items>
+                                    </ComboBox>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+               <!--                     <ComboBox placeholder="Tipo de OS" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{path:'/Sheet1Set', templateShareable:true}">
+                                        <items>
+                                            <core:Item text="{DESC}" enabled="true" key="{DESC}"/>
+                                        </items>
+                                    </ComboBox>-->
+                                    <Input id="DescOs" showValueHelp="true" placeholder="Tipo de OS"  valueHelpRequest="handleValueHelp" valueHelpOnly="true"/>
+                                    <Input id="TpOs" showValueHelp="true" visible="false"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                     <Input id="tecnologia" placeholder="Tecnologia" showValueHelp="false" valueHelpRequest="handleValueHelp" valueHelpOnly="false"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                    <Input id="CodMatSAP" placeholder="Cód Material SAP" type="Text" showValueHelp="true" visible="false"/>
+                                     <Input id="MatSAP" placeholder="Material SAP" showValueHelp="true" valueHelpRequest="handleValueHelpMat" valueHelpOnly="true"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                     <Input id="agrupador" placeholder="Agrupador de materiais" showValueHelp="true" valueHelpRequest="handleValueHelpAgrupador" valueHelpOnly="true"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                    <Input id="quantMin" placeholder="Quantidade Min." type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                    <Input id="quantMax" placeholder="Quantidade Max." type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                    <Input id="quantPct" placeholder="% Tolerância" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                    <Input id="quantTol" placeholder="Quantidade Tolerância" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                                </form:label>
+                                <form:fields>
+                                    <Input id="unidade" placeholder="Unidade de Consumo" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Fluxo Aprov." design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <CheckBox id="aprovacaoClaro" />
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                        <form:title/>
+                    </form:FormContainer>
+                </form:formContainers>
+                <form:layout>
+                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                </form:layout>
+            </form:Form>
+        </content>
+        <beginButton/>
+        <buttons>
+            <Button text="OK" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCreate"/>
+            <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1"/>
+        </buttons>
+        <customHeader/>
+        <endButton/>
+        <subHeader/>
+    </Dialog>
+</core:FragmentDefinition>

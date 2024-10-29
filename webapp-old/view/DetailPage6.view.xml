@@ -1,0 +1,56 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.adminEngine.controller.DetailPage6" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+    <Page showHeader="true" title="Alçadas de aprovação" showFooter="true" showNavButton="false">
+        <content>
+        <Table width="auto" noDataText="Sem dados para exibição" items="{
+								path: '/AlcadasAprovacao',
+								parameters: {
+									$count: true,
+                                    $orderby: 'percentual',
+									$$updateGroupId : 'AlcadasGroup'
+								}
+							}" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" id="alcadaTable" itemPress="_onTableItemPress1"  mode="Delete" delete="onDeleteAlcada">
+                <columns>
+                    <Column width="auto" visible="false" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Percent" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Alçada" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                 <!--  <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Fornecedor" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column> --> 
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Percentual" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active" id="columnListItem">
+                        <cells>
+                            <ObjectNumber number="{percentual}" visible="false"/>
+                            <Label text="{alcada}" width="auto"/>
+                          <!--  <Label text="{fornecedorSAP}" width="auto"/>-->
+                            <Label text="Alçada do supervisor (até {percentual})" width="auto"/>
+                         </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+       <headerContent>
+            <OverflowToolbarButton text="Action" type="Accept" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onNewItem"/>
+        </headerContent>  
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="List" title="Centros" class="sapUiPopupWithPadding" items="{/RemoteCentros}" search="_handleValueHelpSearchCentro"
+		confirm="_handleValueHelpCloseCentro" cancel="_handleValueHelpCloseCentro" resizable="true" draggable="true" growing="true" growingThreshold="50">
+		<StandardListItem iconDensityAware="false" iconInset="false" title="{werks}" description="{name1}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog confirm="handleFilterDialogConfirm" resetFilters="onResetFilters">
+        <filterItems>
+         <!--   <ViewSettingsCustomItem id="customFornecedor" text="Fornecedor" key="fornecedorSAP">
+                <customControl>
+                    <List id="FornecedorCustomList" items="{motor>/FornecedorHelp}" headerText="Fornecedor" growing="true" growingThreshold="50" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeFornecedor">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchFornecedor" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{motor>fornecedor}" description="{motor>nomeFornecedor}" />
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>-->
+             <ViewSettingsFilterItem text="Fornecedor" id="fornecedorSAPFilter" key="fornecedorSAP" multiSelect="true" items="{ path: '/Aprovadores' ,
+								parameters: {
+                                    $apply: 'groupby((fornecedorSAP,alcada))'
+								} }">
+				<items>
+					<ViewSettingsItem id="viewFilter9" text="{fornecedorSAP}" key="fornecedorSAP"/>
+				</items>
+			</ViewSettingsFilterItem>     
+            <ViewSettingsFilterItem text="Usuário"  id="userFilter" key="user" multiSelect="true" items="{ path: '/Aprovadores' ,
+								parameters: {
+                                    $apply: 'groupby((user,alcada))'
+								} }">
+                <items>
+                    <ViewSettingsItem id="viewFilter4" text="{user}" key="user"/>
+                </items>
+            </ViewSettingsFilterItem>        
+        </filterItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

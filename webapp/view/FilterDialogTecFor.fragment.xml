@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <ViewSettingsDialog 
+        confirm="handleFilterDialogConfirm" 
+        resetFilters="onResetFilters">
+        <filterItems>
+            <!-- <ViewSettingsFilterItem text="Login" id="loginTecnicoFilter" key="loginTecnico" multiSelect="true"
+              items="{ path: '/TecnicoPorEPO',
+								parameters: {
+                                    $apply: 'groupby((loginTecnico))'
+					} }">
+				<items>
+					<ViewSettingsItem id="viewFilter3" text="{loginTecnico}" key="loginTecnico"/>
+				</items>
+			</ViewSettingsFilterItem>    -->
+
+            <ViewSettingsCustomItem id="customTecnico" text="Login" key="loginTecnico">
+                <customControl>
+                    <List
+                        id="TecnicoCustomList"
+                        items="{ path: '/TecnicoPorEPO',
+								parameters: {
+                                    $apply: 'groupby((loginTecnico))'
+											} }"
+                        headerText="Login Técnico"
+                        growing="true"
+                        growingThreshold="50"
+                        growingScrollToLoad="true"
+                        mode="MultiSelect"
+                        selectionChange=".onSelectionChangeTecnico"
+                    >
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchTecnico" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{loginTecnico}" />
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+
+            <!-- <ViewSettingsFilterItem text="Fornecedor" id="fornecedorSAPFilter" key="CodFornecedorSAP" multiSelect="true" items="{ path: '/TecnicoPorEPO',
+								parameters: {
+                                    $apply: 'groupby((CodFornecedorSAP))'
+					} }">
+                <items>
+                    <ViewSettingsItem id="viewFilter9" text="{CodFornecedorSAP}" key="CodFornecedorSAP" />
+                </items>
+            </ViewSettingsFilterItem> -->
+
+            <ViewSettingsCustomItem id="customFornecedor" text="Fornecedor" key="CodFornecedorSAP">
+                <customControl>
+                    <List
+                        id="FornecedorCustomList"
+                        items="{ path: '/TecnicoPorEPO',
+								parameters: {
+                                    $apply: 'groupby((CodFornecedorSAP))'
+					                    } }"
+                        headerText="Fornecedor"
+                        growing="true"
+                        growingThreshold="50"
+                        growingScrollToLoad="true"
+                        mode="MultiSelect"
+                        selectionChange=".onSelectionChangeFornecedor"
+                    >
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchFornecedor" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{CodFornecedorSAP}" description="{nomeFornecedor}" />
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+        </filterItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

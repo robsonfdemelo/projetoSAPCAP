@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="List" title="Tipo de OS" class="sapUiPopupWithPadding" items="{/TipoOsHelp}" search="_handleValueHelpSearch"
+		confirm="_handleValueHelpCloseOs" cancel="_handleValueHelpCloseOs" resizable="true" draggable="true" growing="true" growingThreshold="50">
+		<StandardListItem iconDensityAware="false" iconInset="false" title="{tipoOs}" description="{descricaoOs}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

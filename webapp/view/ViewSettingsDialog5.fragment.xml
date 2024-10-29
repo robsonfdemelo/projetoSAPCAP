@@ -1,0 +1,56 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog confirm="handleFilterDialogConfirm" resetFilters="onResetFilters">
+        <filterItems>
+             <ViewSettingsFilterItem text="Grupo" id="agrupadorFilter" key="agrupador" multiSelect="true" items="{ path: '/Agrupadores' ,
+								parameters: {
+                                    $apply: 'groupby((agrupador))'
+								} }">
+				<items>
+					<ViewSettingsItem id="viewFilter9" text="{agrupador}" key="agrupador"/>
+				</items>
+			</ViewSettingsFilterItem>     
+            <ViewSettingsFilterItem text="Técnologia"  id="tecnologiaFilter" key="tecnologia" multiSelect="true" items="{ path: '/Agrupadores' ,
+								parameters: {
+                                    $apply: 'groupby((tecnologia))'
+								} }">
+                <items>
+                    <ViewSettingsItem id="viewFilter4" text="{tecnologia}" key="tecnologia"/>
+                </items>
+            </ViewSettingsFilterItem>        
+            <ViewSettingsFilterItem text="Material"  id="materialFilter" key="material" multiSelect="true" items="{ path: '/Agrupadores' ,
+								parameters: {
+                                    $apply: 'groupby((material))'
+								} }">
+                <items>
+                    <ViewSettingsItem id="viewFilter5" text="{material}" key="material"/>
+                </items>
+            </ViewSettingsFilterItem>      
+            <ViewSettingsFilterItem text="Desc. Material"  id="descMaterialFilter" key="materiais/descMaterial" multiSelect="true" items="{ path: '/Agrupadores' ,
+								parameters: {
+                                    $expand: 'materiais',
+                                    $apply: 'groupby((materiais/descMaterial))'
+								} }">
+                <items>
+                    <ViewSettingsItem id="viewFilter6" text="{materiais/descMaterial}" key="materiais/descMaterial"/>
+                </items>
+            </ViewSettingsFilterItem>     
+            <ViewSettingsFilterItem text="Usuário ult. modificação"  id="usuarioFilter" key="usuario" multiSelect="true" items="{ path: '/Agrupadores' ,
+								parameters: {
+                                    $apply: 'groupby((usuario))'
+								} }">
+                <items>
+                    <ViewSettingsItem id="viewFilter7" text="{usuario}" key="usuario"/>
+                </items>
+            </ViewSettingsFilterItem>    
+            <ViewSettingsFilterItem text="Data ult. modificação"  id="dataHoraFilter" key="dataHora" multiSelect="true" items="{ path: '/Agrupadores' ,
+								parameters: {
+                                    $apply: 'groupby((dataHora))'
+								} }">
+                <items>
+                    <ViewSettingsItem id="viewFilter8" text="{dataHora}" key="dataHora"/>
+                </items>
+            </ViewSettingsFilterItem>    
+        </filterItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog confirm="handleFilterDialogConfirm" resetFilters="onResetFilters">
+        <filterItems>
+
+            <ViewSettingsCustomItem id="customFornec" text="Fornecedor" key="fornecedor">
+                <customControl>
+                    <List id="FornecCustomList" 
+                            items="{ path: '/FornecedorBloqueado' ,
+								parameters: {
+                                    $apply: 'groupby((fornecedor))'
+								} }" growing="true" growingThreshold="40" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeFornec">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchDescrFornec" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{fornecedor}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+               <ViewSettingsCustomItem id="" text="Bloqueado" key="bloqueado">
+                <customControl>
+                    <List id="FornecBloqCustomList" 
+                            items="{ path: '/FornecedorBloqueado' ,
+								parameters: {
+                                    $apply: 'groupby((bloqueado))'
+								} }" growing="true" growingThreshold="40" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeFornecBloq">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchFornecBloq" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{bloqueado}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+        </filterItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

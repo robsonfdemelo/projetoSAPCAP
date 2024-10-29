@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog id="List" title="Agrupadores" class="sapUiPopupWithPadding" items="{
+								path: '/Agrupadores',
+								parameters: {
+                                                     $apply: 'groupby((agrupador))'
+								}
+							}" search="_handleValueHelpSearchAgrupador" confirm="_handleValueHelpCloseAgrupador" cancel="_handleValueHelpCloseAgrupador" resizable="true" draggable="true" growing="true" growingThreshold="50">
+        <StandardListItem iconDensityAware="false" iconInset="false" title="{agrupador}"/>
+    </SelectDialog>
+</core:FragmentDefinition>

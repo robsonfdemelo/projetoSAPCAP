@@ -1,0 +1,74 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.adminEngine.controller.DetailPage11" xmlns="sap.m" xmlns:u="sap.ui.unified">
+    <Page title="Logins dos Usuários" showHeader="true" showFooter="true" showNavButton="false">
+        <content>
+            <Table width="auto" items="{
+								path: '/AlteracaoTecnico',
+								parameters: {
+									$count: true,
+									$$updateGroupId : 'AlteracaoGroup',
+                                    $orderby: 'CodFornecedorSAP'
+								}
+							}" noDataText="Sem dados para exibição" mode="Delete" delete="onDelete" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" id="LoginCnpjTable">
+                
+                        <infoToolbar>
+                            <Toolbar width="100%" id="vsdFilterBar" visible="false">
+                                <content>
+                                    <Label id="vsdFilterLabel"/>
+                                </content>
+                            </Toolbar>
+                        </infoToolbar>
+                <headerToolbar>
+                    <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                        <content>
+                            <Title text="Items ({$count})" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false" id="titleCount"/>
+                            <ToolbarSpacer width=""/>
+                            <OverflowToolbarButton text="Filter" type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="handleFilterButtonPressed"/>
+                            <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onOverflowToolbarButtonPress"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Login do Usuário" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="20%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Cod.Fornecedor" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="CNPJ" width="auto"  wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active" id="columnListItem">
+                        <cells>
+                            <Text text="{loginTecnico}" width="auto"  wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Input value="{CodFornecedorSAP}"  width="auto" />
+                            <Input value="{CNPJ}"  width="auto"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Save" press="onSave" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" press="onResetChanges" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+     <!--   <headerContent>
+            <OverflowToolbarButton text="Action" type="Accept" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+        </headerContent> -->
+    </Page>
+</mvc:View>

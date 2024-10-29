@@ -1,0 +1,20 @@
+{
+	"List": [
+		{
+			"mainText": "BOM",
+			"subText": "Configuração de BOM"
+		},{
+			"mainText": "Regra de cálculo",
+			"subText": "Regra de cálculo de variações de valor e quantidade"
+		},{
+			"mainText": "Parâmetros",
+			"subText": "Parâmetros gerais da aplicação"
+		},{
+			"mainText": "Tipos de OS",
+			"subText": "Tipos de OS"
+		},{
+			"mainText": "Técnicos por EPO",
+			"subText": "Manutenção de técnicos por EPO"
+		}
+	]
+}

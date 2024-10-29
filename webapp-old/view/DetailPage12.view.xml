@@ -1,0 +1,71 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.adminEngine.controller.DetailPage12"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified">
+    <Page title="Movimento x tipo de movimentação" showHeader="true" showFooter="true" showNavButton="false">
+        <content>
+            <Table width="auto" items="{
+								path: '/tipoMov',
+								parameters: {
+									$count: true,
+									$$updateGroupId : 'tipoMovGroup'
+								}
+							}" noDataText="Sem dados para exibição" mode="Delete" delete="onDelete" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" id="tipoMovTable">
+        
+                <headerToolbar>
+                    <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                        <content>
+                            <Title text="Items ({$count})" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false" id="titleCount"/>
+                            <ToolbarSpacer width=""/>
+                            <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onOverflowToolbarButtonPress"/>
+                            <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://download" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onExport"/>
+                            <u:FileUploader id="FileUploaderId2" sameFilenameAllowed="true" iconOnly="true" buttonOnly="true" fileType="XLSX,xlsx" icon="sap-icon://upload" style="Emphasized" change="onUpload"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="TIPO DE MOVIMENTO ORIGEM" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="TIPO DE MOVIMENTO DESTINO" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="TIPO DE MOVIMENTAÇÃO" width="auto"  wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="DESCRIÇÃO" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="TRANSAÇÃO DE FATURAMENTO" width="auto"  wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="columnListItem">
+                        <cells>
+                            <Text text="{tp_mov_origem}" width="auto" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{tp_mov_destino}" width="auto" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{tp_movimento}" width="auto" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{descricao}" width="auto" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{tcode}" width="auto" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

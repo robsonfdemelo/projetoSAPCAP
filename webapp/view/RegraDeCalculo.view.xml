@@ -1,0 +1,193 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.adminEngine.controller.RegraDeCalculo"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page showHeader="true" title="Administração de regras" showFooter="true" showNavButton="false">
+        <content>
+            <!--    <form:Form width="100%" editable="true" visible="true">
+                <form:title>
+                    <core:Title text="Técnico" level="Auto"/>
+                </form:title>
+                <form:formContainers>
+                    <form:FormContainer visible="true">
+                        <form:formElements>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Erros de conformidade com a BOM" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                        <items>
+                                            <core:Item text="Erro" enabled="true" key="Erro"/>
+                                            <core:Item text="Warning" enabled="true" key="Warning"/>
+                                            <core:Item text="Desativado" enabled="true" key="Desativado"/>
+                                        </items>
+                                    </ComboBox>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Erros de disponibilidade de estoque" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                        <items>
+                                            <core:Item text="Erro" enabled="true" key="Erro"/>
+                                            <core:Item text="Warning" enabled="true" key="Warning"/>
+                                            <core:Item text="Desativado" enabled="true" key="Desativado"/>
+                                        </items>
+                                    </ComboBox>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Erros de atribuição de Técnico" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                        <items>
+                                            <core:Item text="Erro" enabled="true" key="Erro"/>
+                                            <core:Item text="Warning" enabled="true" key="Warning"/>
+                                            <core:Item text="Desativado" enabled="true" key="Desativado"/>
+                                        </items>
+                                    </ComboBox>
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                        <form:title/>
+                    </form:FormContainer>
+                </form:formContainers>
+                <form:layout>
+                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="6" columnsM="1" labelSpanM="6" labelSpanS="6"/>
+                </form:layout>
+            </form:Form>
+            <form:Form width="100%" editable="true" visible="true">
+                <form:title>
+                    <core:Title text="Empreiteira" level="Auto"/>
+                </form:title>
+                <form:formContainers>
+                    <form:FormContainer visible="true">
+                        <form:formElements>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Erros de conformidade com a BOM" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                        <items>
+                                            <core:Item text="Erro" enabled="true" key="Erro"/>
+                                            <core:Item text="Warning" enabled="true" key="Warning"/>
+                                            <core:Item text="Desativado" enabled="true" key="Desativado"/>
+                                        </items>
+                                    </ComboBox>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Erros de disponibilidade de estoque" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                        <items>
+                                            <core:Item text="Erro" enabled="true" key="Erro"/>
+                                            <core:Item text="Warning" enabled="true" key="Warning"/>
+                                            <core:Item text="Desativado" enabled="true" key="Desativado"/>
+                                        </items>
+                                    </ComboBox>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Erros de atribuição de Técnico" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                </form:label>
+                                <form:fields>
+                                    <ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                        <items>
+                                            <core:Item text="Erro" enabled="true" key="Erro"/>
+                                            <core:Item text="Warning" enabled="true" key="Warning"/>
+                                            <core:Item text="Desativado" enabled="true" key="Desativado"/>
+                                        </items>
+                                    </ComboBox>
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                        <form:title/>
+                    </form:FormContainer>
+                </form:formContainers>
+                <form:layout>
+                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="6" columnsM="1" labelSpanM="6" labelSpanS="6"/>
+                </form:layout>
+            </form:Form> -->
+            <Table width="auto" items="{path: '/RegraDeCalculo', parameters: { $$updateGroupId : 'RegraGroup'}}" noDataText="Sem dados para exibição" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" id="regrasTable">
+                <columns>
+                    <Column width="15%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Tipo de regra" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Erros de conformidade com a BOM" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Erros de disponibilidade de estoque" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Erros de atribuição de Técnico" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Erros de atribuição de acessórios" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active" id="columnListItem">
+                        <cells>
+                            <Label text="{tipoDeRegra}" width="auto"/>
+                            <Select forceSelection="false" selectedKey="{BOM}">
+                                <core:Item text="Erro" enabled="true" key="3"/>
+                                <core:Item text="Warning" enabled="true" key="2"/>
+                                <core:Item text="Desativado" enabled="true" key="1"/>
+                            </Select>
+                            <Select forceSelection="false" selectedKey="{estoque}">
+                                <core:Item text="Erro" enabled="true" key="3"/>
+                                <core:Item text="Warning" enabled="true" key="2"/>
+                                <core:Item text="Desativado" enabled="true" key="1"/>
+                            </Select>
+                            <Select forceSelection="false" selectedKey="{atribTecnico}">
+                                <core:Item text="Erro" enabled="true" key="3"/>
+                                <core:Item text="Warning" enabled="true" key="2"/>
+                                <core:Item text="Desativado" enabled="true" key="1"/>
+                            </Select>
+                            <Select forceSelection="false" selectedKey="{atribAcessor}">
+                                <core:Item text="Erro" enabled="true" key="3"/>
+                                <core:Item text="Warning" enabled="true" key="2"/>
+                                <core:Item text="Desativado" enabled="true" key="1"/>
+                            </Select>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Save" press="onSave" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" press="onResetChanges" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+        <headerContent>
+            <OverflowToolbarButton text="Action" type="Accept" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+        </headerContent>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

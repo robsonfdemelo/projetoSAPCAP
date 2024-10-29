@@ -1,0 +1,12 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="UF" key="uf" />
+			<ViewSettingsItem text="Código IBGE" key="codIBGE" />
+			<ViewSettingsItem text="Bloqueado" key="bloqueada" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

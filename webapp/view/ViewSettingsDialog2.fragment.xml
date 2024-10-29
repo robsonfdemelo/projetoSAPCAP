@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="Fornecedor SAP" key="fornecedorSAP" />
+			<ViewSettingsItem text="Usuário" key="user" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

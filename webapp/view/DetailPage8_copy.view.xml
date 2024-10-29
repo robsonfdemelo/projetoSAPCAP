@@ -1,0 +1,84 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+    controllerName="com.sap.build.standard.adminEngine.controller.DetailPage8_copy"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified">
+    <Page title="Regiões Bloqueadas" showHeader="true" showFooter="true" showNavButton="false">
+        <content>
+            <Table width="auto" items="{/UfBloqueada}" 
+                noDataText="Sem dados para exibição"  mode="Delete" delete="onDelete" showSeparators="All" growing="true" 
+                growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" id="regioTable" selectionChange=".onSelectionChangeRegiao"> 
+                <infoToolbar>
+                    <Toolbar width="100%" id="vsdFilterBarr" visible="false">
+                        <content>
+                            <Label id="vsdFilterLabell"/>
+                        </content>
+                    </Toolbar>
+                </infoToolbar>
+                <headerToolbar>
+                    <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+                        <content>
+                            <Title text="Items ({$count})" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false" id="titleCount"/>
+                            <ToolbarSpacer width=""/>
+                            <!--<OverflowToolbarButton text="Action" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onOverflowToolbarButtonPress"/>-->
+                             <OverflowToolbarButton text="Delete" type="Emphasized" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onDeleteUFBloq"/>
+                            <OverflowToolbarButton type="Default" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="handleSortButtonPressed" id="sortMy"/>
+                            <OverflowToolbarButton type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="handleFilterButtonPressed"/>
+                            <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://download" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onExport"/>
+                            <u:FileUploader id="FileUploaderid" name="myFileUpload" placeholder="Choose a file for Upload..." change="onhandleUpload" style="Emphasized" fileType="xlsx,csv" visible="false"/>
+                            <u:FileUploader id="FileUploaderId2" sameFilenameAllowed="true" iconOnly="true" buttonOnly="true" fileType="XLSX,xlsx" icon="sap-icon://upload" style="Emphasized" change="onUpload"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="UF" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+
+                     <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Código IBGE" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <CheckBox text="Bloqueado" id="ufBloq" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header> 
+                        <footer/>
+                    </Column>
+                    <!-- <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="UF Teste" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column> -->
+                </columns>
+                <items>
+                    <ColumnListItem  id="columnListItem">
+                        <cells>
+                            <Text text="{uf}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <Text text="{codIBGE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <CheckBox selected="{bloqueada}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Bloquear Baixa" press="bloquearBaixa" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+        <!--   <headerContent>
+            <OverflowToolbarButton text="Action" type="Accept" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+        </headerContent> -->
+    </Page>
+</mvc:View>

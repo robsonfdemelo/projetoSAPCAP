@@ -1,0 +1,70 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.adminEngine.controller.DetailPage1" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+    <Page showHeader="true" title="Parâmetros" showFooter="true" showNavButton="false">
+        <content>
+    <!--        <form:SimpleForm id="SimpleFormChange354"
+            binding="{path : '/Parametros', parameters : {$$updateGroupId : 'ParametrosGroup'}}" 
+			editable="true"
+			layout="ResponsiveGridLayout"
+adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12">
+			<form:content>
+ <Label text="SLA para baixa" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+			  <Input placeholder="Dias" id="idSla2" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0" value="{valor}"/>
+              <Label text="Tempo de expurgo para pendências" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+              <Input placeholder="Dias" id="idTempo2" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0" value="{valor}"/>
+            </form:content>
+		</form:SimpleForm> -->
+
+		<MessageStrip showIcon="true" text="Preencha o parâmetro 'Baixas ativas' com X para ativar a baixa, ou remova para desativar"/>
+                    <Table width="auto" items="{
+								path: '/Parametros',
+								parameters: {
+									$$updateGroupId : 'ParametrosGroup'
+								}
+							}" noDataText="Sem dados para exibição" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin" id="parametroTable">
+                <columns>
+                    <Column width="auto" visible="false" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="ID" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="false"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Nome do parametro" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Valor" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active" id="columnListItem">
+                        <cells>
+                            <Label text="{parametros}" width="auto" visible="false"/>
+                            <Label text="{labelParametro}" width="auto"/>
+                            <Input value="{valor}" width="auto" maxLength="{= %{labelParametro} !== 'Baixas ativas' ? 10 : 1}"/>
+                     </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Save" press="onSave" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+    <!--   <headerContent>
+            <OverflowToolbarButton text="Action" type="Accept" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+        </headerContent> --> 
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>

@@ -1,0 +1,88 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog confirm="handleFilterDialogConfirm" resetFilters="onResetFilters">
+        <filterItems>
+
+            <ViewSettingsCustomItem id="customRegiao" text="Região" key="regiao">
+                <customControl>
+                    <List id="RegiaoCustomList" 
+                            items="{ path: '/Regioes' ,
+								parameters: {
+                                    $apply: 'groupby((regiao))'
+								} }" growing="true" growingThreshold="40" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeRegiao">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchRegiao" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{regiao}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+
+             <!-- <ViewSettingsFilterItem text="Região" id="regiaoFilter" key="regiao" multiSelect="true" items="{ path: '/Regioes' ,
+								parameters: {
+                                    $apply: 'groupby((regiao))'
+								} }">
+				<items>
+					<ViewSettingsItem id="viewFilter9" text="{regiao}" key="regiao"/>
+				</items>
+			</ViewSettingsFilterItem>   -->
+
+            <ViewSettingsCustomItem id="customMunicipio" text="Código do município IBGE" key="municipio">
+                <customControl>
+                    <List id="MunicipioCustomList" 
+                            items="{ path: '/Regioes' ,
+								parameters: {
+                                    $apply: 'groupby((municipio_municipio))'
+								} }" growing="true" growingThreshold="40" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeMunicipio">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchMunicipio" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{municipio_municipio}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+
+            <!-- <ViewSettingsFilterItem text="Código do município IBGE"  id="municipioFilter" key="municipio_municipio" multiSelect="true" items="{ path: '/Regioes' ,
+								parameters: {
+                                    $apply: 'groupby((municipio_municipio))'
+								} }">
+                <items>
+                    <ViewSettingsItem id="viewFilter4" text="{municipio_municipio}" key="municipio_municipio"/>
+                </items>
+            </ViewSettingsFilterItem>   -->
+
+            <ViewSettingsCustomItem id="customDescrMunicipio" text="Descrição do município" key="municipio">
+                <customControl>
+                    <List id="DescrMunicipioCustomList" 
+                            items="{ path: '/Regioes' ,
+								parameters: {
+                                    $expand: 'municipio',
+                                    $apply: 'groupby((municipio/descrMunicipio))'
+								} }" growing="true" growingThreshold="40" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeDescrMunicipio">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchDescrMunicipio" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{municipio/descrMunicipio}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+
+            <!-- <ViewSettingsFilterItem text="Descrição do município"  id="descrMunicipioFilter" key="municipio/descrMunicipio" multiSelect="true" items="{ path: '/Regioes' ,
+								parameters: {
+                                    $expand: 'municipio',
+                                    $apply: 'groupby((municipio/descrMunicipio))'
+								} }">
+                <items>
+                    <ViewSettingsItem id="viewFilter5" text="{municipio/descrMunicipio}" key="municipio/descrMunicipio"/>
+                </items>
+            </ViewSettingsFilterItem>   -->
+
+        </filterItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

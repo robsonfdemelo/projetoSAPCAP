@@ -1,0 +1,47 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/motor-de-regras/(.*)$",
+      "target": "/motor-de-regras/$1",
+      "destination": "motorderegras",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/work-order/(.*)$",
+      "target": "/work-order/$1",
+      "destination": "workorder",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/workflow/(.*)$",
+      "target": "/workflow/$1",
+      "destination": "workflow",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/valida-regras/(.*)$",
+      "target": "/valida-regras/$1",
+      "destination": "valida-regras"
+    },
+    {
+      "source": "^/resources/(.*)$",
+      "target": "/resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/test-resources/(.*)$",
+      "target": "/test-resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

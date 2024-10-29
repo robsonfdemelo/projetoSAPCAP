@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.scp/
+.env
+
+# auto generated wildcard
+Consolidacao/consolidacao/consolidacao/.env1

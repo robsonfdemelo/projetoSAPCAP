@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirm">
+		<filterItems>
+             <ViewSettingsFilterItem text="Login" id="loginTecnicoFilter" key="loginTecnico" multiSelect="true"
+              items="{ path: '/AlteracaoTecnico',
+								parameters: {
+                                    $apply: 'groupby((loginTecnico))'
+					} }">
+				<items>
+					<ViewSettingsItem id="viewFilter3" text="{loginTecnico}" key="loginTecnico"/>
+				</items>
+			</ViewSettingsFilterItem>   
+             <ViewSettingsFilterItem text="Fornecedor" id="fornecedorSAPFilter" key="CodFornecedorSAP" multiSelect="true"
+              items="{ path: '/AlteracaoTecnico',
+								parameters: {
+                                    $apply: 'groupby((CodFornecedorSAP))'
+					} }">
+				<items>
+					<ViewSettingsItem id="viewFilter9" text="{CodFornecedorSAP}" key="CodFornecedorSAP"/>
+				</items>
+			</ViewSettingsFilterItem>      
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

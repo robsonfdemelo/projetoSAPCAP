@@ -1,0 +1,25 @@
+specVersion: '2.0'
+metadata:
+  name: 'admmotorregras'
+type: application
+framework:
+  name: SAPUI5
+  version: '1.85.2'
+  libraries: 
+    - name: sap.m
+    - name: sap.ushell
+    - name: sap.fe.templates
+    - name: themelib_sap_fiori_3
+server:
+  customMiddleware:
+  - name: fiori-tools-proxy
+    afterMiddleware: compression
+    configuration:
+      backend:
+      - path: /work-order
+        url: https://work-order.cfapps.eu10.hana.ondemand.com
+  - name: fiori-tools-appreload
+    afterMiddleware: compression
+    configuration:
+     port: 35729
+     path: webapp

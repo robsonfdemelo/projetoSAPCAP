@@ -1,0 +1,57 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog confirm="handleFilterDialogConfirm" resetFilters="onResetFilters">
+        <filterItems>
+             <ViewSettingsCustomItem id="customDescrUF" text="UF" key="uf">
+                <customControl>
+                     <List id="DescrUFCustomList" 
+                            items="{ path: '/UfBloqueada' ,
+								parameters: {
+                                    $apply: 'groupby((uf))'
+								} }"  growing="true" growingThreshold="40" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeUf">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchDescrUF" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{uf}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+
+             <ViewSettingsCustomItem id="customCodIBGE" text="CodIBGE" key="codIBGE">
+                <customControl>
+                     <List id="DescrCodIbgeCustomList" 
+                            items="{ path: '/UfBloqueada' ,
+								parameters: {
+                                    $apply: 'groupby((codIBGE))'
+								} }"  growing="true" growingThreshold="40" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeCodIbge">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchDescrIBGE" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{codIBGE}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+
+             <ViewSettingsCustomItem id="customDescUFBloq" text="Bloqueada" key="bloqueada">
+                <customControl>
+                     <List id="DescrUFBloqCustomList" 
+                            items="{ path: '/UfBloqueada' ,
+								parameters: {
+                                    $apply: 'groupby((bloqueada))'
+								} }"  growing="true" growingThreshold="40" growingScrollToLoad="true" mode="MultiSelect" selectionChange=".onSelectionChangeUfBloq">
+                        <infoToolbar>
+                            <OverflowToolbar visible="true">
+                                <SearchField liveChange=".onSearchDescrUFBloq" width="100%" />
+                            </OverflowToolbar>
+                        </infoToolbar>
+                        <StandardListItem title="{bloqueada}"/>
+                    </List>
+                </customControl>
+            </ViewSettingsCustomItem>
+        </filterItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

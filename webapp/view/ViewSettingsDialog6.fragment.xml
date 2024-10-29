@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="Grupo" key="agrupador" />
+			<ViewSettingsItem text="Técnologia" key="tecnologia" />
+			<ViewSettingsItem text="Material" key="material" />
+			<ViewSettingsItem text="Desc. Material" key="materiais/descMaterial" />
+			<ViewSettingsItem text="Usuário ult. modificação" key="usuario" />
+			<ViewSettingsItem text="Data ult. modificação" key="dataHora" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

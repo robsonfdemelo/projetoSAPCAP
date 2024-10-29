@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirm">
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="OSs"
+				key="tipoOs"
+				multiSelect="true"
+                items="{ path: '/TipoOsHelp' }">
+				<items>
+					<ViewSettingsItem id="viewFilter1" text="{tipoOs}" key="tipoOs"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Material"
+				key="material"
+				multiSelect="true"
+                items="{ path: '/MateriaisHelp'}">
+				<items>
+					<ViewSettingsItem id="viewFilter2" text="{material}" key="material"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

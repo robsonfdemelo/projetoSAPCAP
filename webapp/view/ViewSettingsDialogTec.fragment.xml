@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="Login" key="loginTecnico" />
+			<ViewSettingsItem text="Fornecedor" key="CodFornecedorSAP" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

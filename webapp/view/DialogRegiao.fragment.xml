@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog id="List" title="Regiões" class="sapUiPopupWithPadding" items="{
+								path: '/Regioes',
+								parameters: {
+                                                     $apply: 'groupby((regiao))'
+								}
+							}" search="_handleValueHelpSearchRegiao" confirm="_handleValueHelpCloseRegiao" cancel="_handleValueHelpCloseRegiao" resizable="true" draggable="true" growing="true" growingThreshold="50">
+        <StandardListItem iconDensityAware="false" iconInset="false" title="{regiao}"/>
+    </SelectDialog>
+</core:FragmentDefinition>
